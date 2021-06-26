@@ -1,8 +1,8 @@
 # Boas práticas desenvolvimento de microservices
 Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais como:
-- product-service: produtos financeiros
-- account-service: operações financeiras
-- limit-service: controle de limites, como saques, tarifas isentas e etc.
+- product-service: produtos financeiros (limites de saques, quantidade de saques, isensão de taxas)
+- account-service: cadastro de contas, registro de extratos
+- opration-service: efetuação de saques, debitos providos de compra, debito de taxas, debito de juros, credito de juros para conta poupança.
 
 ## Arquitetura empregada
 - Todos microservices usufruem da arquitetura limpa
@@ -23,3 +23,4 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
   - redis
   - kafka
   - cloud stream
+  - flyway
