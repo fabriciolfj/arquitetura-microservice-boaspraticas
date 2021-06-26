@@ -1,0 +1,24 @@
+server:
+  port: 9090
+  shutdown: graceful
+  tomcat:
+    accept-count: 100
+    connection-timeout: 2000
+    max-connections: 8192
+    threads:
+      max: 200
+      min-spare: 20
+
+spring:
+  application:
+    name: conta-service
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  datasource:
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 3
+      idle-timeout: 1000
+    url: jdbc:mysql://localhost:3306/account?createDatabaseIfNotExist=true&serverTimezone=UTC
+    password: root
+    username: root
