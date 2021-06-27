@@ -1,6 +1,8 @@
 package com.github.fabriciolfj.business.usercase;
 
 import com.github.fabriciolfj.business.SaveProduct;
+import com.github.fabriciolfj.business.product.ProductCreateCase;
+import com.github.fabriciolfj.business.product.ValidationCase;
 import com.github.fabriciolfj.business.usercase.fixture.ProductFixture;
 import com.github.fabriciolfj.entity.exceptions.ProductCreateException;
 import com.github.fabriciolfj.entity.exceptions.ValidationProductException;

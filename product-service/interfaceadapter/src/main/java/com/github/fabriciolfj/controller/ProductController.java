@@ -1,6 +1,6 @@
 package com.github.fabriciolfj.controller;
 
-import com.github.fabriciolfj.business.usercase.ProductCreateCase;
+import com.github.fabriciolfj.business.product.ProductCreateCase;
 import com.github.fabriciolfj.controller.model.GetProductRequest;
 import com.github.fabriciolfj.controller.model.GetProductResponse;
 import lombok.RequiredArgsConstructor;

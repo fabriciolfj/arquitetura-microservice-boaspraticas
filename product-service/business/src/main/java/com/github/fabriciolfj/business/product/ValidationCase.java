@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.business.usercase;
+package com.github.fabriciolfj.business.product;
 
 import com.github.fabriciolfj.entity.Product;
 import com.github.fabriciolfj.entity.exceptions.ValidationProductException;
