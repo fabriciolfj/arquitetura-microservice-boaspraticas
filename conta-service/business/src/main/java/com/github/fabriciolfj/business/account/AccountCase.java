@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.business.usercase;
+package com.github.fabriciolfj.business.account;
 
 import com.github.fabriciolfj.business.SaveAccount;
 import com.github.fabriciolfj.entity.Account;

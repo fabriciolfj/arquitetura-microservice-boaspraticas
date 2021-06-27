@@ -1,6 +1,6 @@
 package com.github.fabriciolfj.controller;
 
-import com.github.fabriciolfj.business.usercase.AccountCase;
+import com.github.fabriciolfj.business.account.AccountCase;
 import com.github.fabriciolfj.controller.model.AccountMapper;
 import com.github.fabriciolfj.controller.model.AccountRequest;
 import lombok.RequiredArgsConstructor;
