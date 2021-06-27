@@ -25,6 +25,7 @@ public class ProductEntity {
     private BigDecimal rate;
     private String daily;
     private String describe;
+    private Integer status;
     @CreationTimestamp
     private LocalDateTime created;
     @UpdateTimestamp

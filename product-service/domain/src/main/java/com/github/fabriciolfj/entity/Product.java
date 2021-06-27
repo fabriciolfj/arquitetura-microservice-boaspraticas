@@ -19,6 +19,7 @@ public class Product {
     private Integer dailyWithdrawal;
     private BigDecimal limitDailyWithDrawal;
     private BigDecimal rate;
+    private Status status = Status.ACTIVE;
 
     public BigDecimal applyRate(final BigDecimal value) {
         var rateApply = value.multiply(rate.divide(BigDecimal.valueOf(100)));

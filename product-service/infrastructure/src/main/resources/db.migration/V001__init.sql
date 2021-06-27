@@ -7,6 +7,7 @@ describe varchar(200) not null,
 daily bigint not null,
 created datetime not null,
 updated datetime,
+status bigint not null,
 unique(code),
 primary key (id)
 ) engine=InnoDB default charset=utf8;

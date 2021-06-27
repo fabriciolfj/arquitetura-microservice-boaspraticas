@@ -4,14 +4,12 @@ import com.github.fabriciolfj.business.SaveProduct;
 import com.github.fabriciolfj.entity.Product;
 import com.github.fabriciolfj.entity.exceptions.BusinessException;
 import com.github.fabriciolfj.entity.exceptions.ProductCreateException;
-import com.github.fabriciolfj.entity.exceptions.ValidationProductException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 
 @Log4j2
