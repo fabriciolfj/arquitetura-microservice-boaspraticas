@@ -16,5 +16,6 @@ public interface ProductEntityMapper {
     @Mapping(target = "daily", source = "dailyWithdrawal")
     @Mapping(target = "limit", source = "limitDailyWithDrawal")
     @Mapping(target = "rate", source = "rate")
+    @Mapping(target = "status", source = "status")
     ProductEntity toEntity(final Product product);
 }

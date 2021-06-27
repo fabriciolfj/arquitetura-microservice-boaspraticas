@@ -22,6 +22,11 @@
             <artifactId>domain</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.fabriciolfj</groupId>
+            <artifactId>interfaceadapter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

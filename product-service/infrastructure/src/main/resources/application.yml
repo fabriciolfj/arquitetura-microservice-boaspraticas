@@ -1,0 +1,51 @@
+server:
+  port: 8181
+  shutdown: graceful
+  tomcat:
+    accept-count: 100
+    connection-timeout: 2000
+    max-connections: 8192
+    threads:
+      max: 200
+      min-spare: 20
+
+spring:
+  application:
+    name: product-service
+  redis:
+    host: localhost
+    port: 6379
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  datasource:
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 3
+      idle-timeout: 1000
+    url: jdbc:mysql://localhost:3306/financeiro?createDatabaseIfNotExist=true&serverTimezone=UTC
+    password: root
+    username: root
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+
+management:
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoint:
+    metrics:
+      enabled: false
+    prometheus:
+      enabled: true

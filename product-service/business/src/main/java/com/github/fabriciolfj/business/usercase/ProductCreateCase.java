@@ -4,6 +4,7 @@ import com.github.fabriciolfj.business.SaveProduct;
 import com.github.fabriciolfj.entity.Product;
 import com.github.fabriciolfj.entity.exceptions.BusinessException;
 import com.github.fabriciolfj.entity.exceptions.ProductCreateException;
+import com.github.fabriciolfj.entity.state.StateActive;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,8 @@ public class ProductCreateCase {
 
     public Product execute(final Product product) {
         return ofNullable(validationCase.execute(product))
+                .map(Product::generateCode)
+                .map(p -> p.executeState(new StateActive()))
                 .flatMap(this::save)
                 .orElseThrow(() -> {
                     log.info("Fail created product");

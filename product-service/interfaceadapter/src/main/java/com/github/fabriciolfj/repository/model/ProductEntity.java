@@ -21,9 +21,11 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String code;
+    @Column(name = "limit_withdraw")
     private BigDecimal limit;
     private BigDecimal rate;
-    private String daily;
+    private Integer daily;
+    @Column(name = "description")
     private String describe;
     private Integer status;
     @CreationTimestamp

@@ -13,7 +13,6 @@ public class ValidationCase {
     public Product execute(final Product product) {
         try {
             Assert.notNull(product, "Product is null");
-            Assert.notNull(product.getCode(), "Code product is null");
             Assert.notNull(product.getDailyWithdrawal(), "Daily withdrawal is null");
             Assert.notNull(product.getDescribe(), "Describe product is null");
             Assert.notNull(product.getLimitDailyWithDrawal(), "Limit product is null");

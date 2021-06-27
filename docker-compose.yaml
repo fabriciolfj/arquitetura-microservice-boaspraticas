@@ -1,19 +1,15 @@
 version: "3.3"
 services:
+
   mysql:
-    image: mysql:latest
+    image: mysql
     command: --lower_case_table_names=1
     environment:
-      MYSQL_DATABASE: 'account'
+      MYSQL_DATABASE: "financeiro"
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_ALLOW_EMPTY_PASSWORD: "no"
     ports:
       - 3306:3306
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-uuser", "-ppwd", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 10    
 
   zookeeper:
     image: debezium/zookeeper:1.1
@@ -22,7 +18,7 @@ services:
       - 2888:2888
       - 3888:3888
     networks:
-      - kafka-net
+      - kafka-net 
 
   kafka:
     image: debezium/kafka:1.1

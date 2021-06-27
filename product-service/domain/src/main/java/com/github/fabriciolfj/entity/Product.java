@@ -1,9 +1,11 @@
 package com.github.fabriciolfj.entity;
 
+import com.github.fabriciolfj.entity.state.State;
+import com.github.fabriciolfj.entity.state.StateActive;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
-
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Log4j2
 @Builder
@@ -19,7 +21,7 @@ public class Product {
     private Integer dailyWithdrawal;
     private BigDecimal limitDailyWithDrawal;
     private BigDecimal rate;
-    private Status status = Status.ACTIVE;
+    private Integer status;
 
     public BigDecimal applyRate(final BigDecimal value) {
         var rateApply = value.multiply(rate.divide(BigDecimal.valueOf(100)));
@@ -35,5 +37,15 @@ public class Product {
         var limit = limitDailyWithDrawal.subtract(value);
         log.info("Limit old: {}, Limite new: {}", limitDailyWithDrawal, limit);
         limitDailyWithDrawal = limit;
+    }
+
+    public Product generateCode() {
+        this.code = UUID.randomUUID().toString();
+        return this;
+    }
+
+    public Product executeState(final State state) {
+        state.execute(this);
+        return this;
     }
 }
