@@ -33,6 +33,10 @@ public class ProductCreateCase {
     }
 
     private Optional<Product> save(final Product product) {
-        return saveProduct.save(product);
+        try {
+            return saveProduct.save(product);
+        } catch (Exception e) {
+            throw new ProductCreateException(e.getMessage());
+        }
     }
 }
