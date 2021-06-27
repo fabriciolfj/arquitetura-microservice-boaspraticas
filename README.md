@@ -2,7 +2,7 @@
 Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais como:
 - product-service: produtos financeiros (limites de saques, quantidade de saques, isensão de taxas)
 - account-service: cadastro de contas, registro de extratos
-- opration-service: efetuação de saques, debitos providos de compra, debito de taxas, debito de juros, credito de juros para conta poupança.
+- operation-service: efetuação de saques, debitos providos de compra, debito de taxas, debito de juros, credito de juros para conta poupança.
 
 ## Arquitetura empregada
 - Todos microservices usufruem da arquitetura limpa
