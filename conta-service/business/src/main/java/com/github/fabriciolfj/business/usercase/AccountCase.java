@@ -17,11 +17,12 @@ public class AccountCase {
 
     public Account create(final Account account) {
         return of(account)
-            .map(c -> account.addExtrato(Extract.createIni(account.getBalanceInit(), account.getCode())))
-            .map(Account::genereteCode)
-            .map(c -> {
-                saveAccount.save(c);
-                return c;
-            }).orElseThrow(() -> new CreateAccountException("Falha na criação da conta"));
+                .map(Account::genereteCode)
+                .map(c -> {
+                    var extrato = Extract.createIni(account.getBalanceInit(), account.getCode());
+                    return account.addExtrato(extrato);
+                })
+                .flatMap(c -> saveAccount.save(c))
+                .orElseThrow(() -> new CreateAccountException("Falha na criação da conta"));
     }
 }

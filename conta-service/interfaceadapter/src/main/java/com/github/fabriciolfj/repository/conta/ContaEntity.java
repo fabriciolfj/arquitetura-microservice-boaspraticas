@@ -25,6 +25,7 @@ public class ContaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String code;
+    @Column(name = "cpf", unique = true)
     private String cpf;
     @CreationTimestamp
     private LocalDateTime created;

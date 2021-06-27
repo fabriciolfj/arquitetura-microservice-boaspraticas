@@ -19,9 +19,13 @@ public class Account {
     @EqualsAndHashCode.Include
     private String cpf;
     private BigDecimal balanceInit;
-    private List<Extract> extracts = new ArrayList<>();
+    private List<Extract> extracts;
 
     public Account addExtrato(final Extract extract) {
+        if (this.extracts == null) {
+            this.extracts = new ArrayList<>();
+        }
+
         this.extracts.add(extract);
         return this;
     }

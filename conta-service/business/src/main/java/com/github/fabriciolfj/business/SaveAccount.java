@@ -2,7 +2,9 @@ package com.github.fabriciolfj.business;
 
 import com.github.fabriciolfj.entity.Account;
 
+import java.util.Optional;
+
 public interface SaveAccount {
 
-    void save(final Account account);
+    Optional<Account> save(final Account account);
 }
