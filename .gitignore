@@ -2,3 +2,5 @@
 .idea/
 
 *.class
+
+product-service/infrastructure/target/
