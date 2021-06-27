@@ -14,6 +14,7 @@ conta_id bigint not null,
 debit decimal(10,4) not null,
 credit decimal(10,4) not null,
 balance decimal(10,5) not null,
+date datetime not null,
 primary key (id),
 foreign key (conta_id) references  conta (id)
 ) engine=InnoDB default charset=utf8;

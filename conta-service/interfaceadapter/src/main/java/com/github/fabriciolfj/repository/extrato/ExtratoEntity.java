@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,4 +28,5 @@ public class ExtratoEntity {
     private BigDecimal debit;
     private BigDecimal credit;
     private BigDecimal balance;
+    private LocalDateTime date;
 }

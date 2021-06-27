@@ -19,7 +19,7 @@ public class AccountCase {
         return of(account)
                 .map(Account::genereteCode)
                 .map(c -> {
-                    var extrato = Extract.createIni(account.getBalanceInit(), account.getCode());
+                    var extrato = Extract.execute(account.getBalanceInit(), account.getCode());
                     return account.addExtrato(extrato);
                 })
                 .flatMap(c -> saveAccount.save(c))
