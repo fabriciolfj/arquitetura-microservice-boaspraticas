@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 import static java.util.Optional.of;
+import static java.util.Optional.ofNullable;
 
 @Log4j2
 @Component
@@ -22,7 +23,7 @@ public class ProductCreateCase {
     private final ValidationCase validationCase;
 
     public Product execute(final Product product) {
-        return of(validationCase.execute(product))
+        return ofNullable(validationCase.execute(product))
                 .flatMap(this::save)
                 .orElseThrow(() -> {
                     log.info("Fail created product");
@@ -32,10 +33,6 @@ public class ProductCreateCase {
     }
 
     private Optional<Product> save(final Product product) {
-        try {
-            return saveProduct.save(product);
-        } catch (Exception e) {
-            throw new ProductCreateException(e.getMessage());
-        }
+        return saveProduct.save(product);
     }
 }
