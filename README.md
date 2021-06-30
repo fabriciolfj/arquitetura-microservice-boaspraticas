@@ -24,3 +24,6 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
   - kafka
   - cloud stream
   - flyway
+  - oauth2
+  - openfeign
+  - keycloak
