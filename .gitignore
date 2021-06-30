@@ -3,4 +3,10 @@
 
 *.class
 
-product-service/infrastructure/target/
+product-service/infrastructure/target/**
+product-service/domain/target/**
+product-service/interfaceadapter/target/**
+
+*.iml
+
+product-service/business/target/**
