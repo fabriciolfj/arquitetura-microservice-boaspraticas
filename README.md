@@ -13,7 +13,7 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
 - rastreamento
 - spring boot
   - banco de dados relacional 
-  - spring data 
+  - spring data | specification
   - spring sleuth
   - service discovery consul
   - lombok
