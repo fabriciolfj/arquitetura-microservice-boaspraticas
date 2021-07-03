@@ -1,6 +1,14 @@
 version: "3.3"
 services:
 
+  keycloak: #http://localhost:8080/auth, http://localhost:8080/auth/realms/appsdeveloperblog/account/
+    image: quay.io/keycloak/keycloak:11.0.2
+    environment:
+      KEYCLOAK_USER: "admin"
+      KEYCLOAK_PASSWORD: "admin"
+    ports:
+      - 8080:8080
+
   mysql:
     image: mysql
     command: --lower_case_table_names=1
