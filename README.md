@@ -7,6 +7,8 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
 ## Arquitetura empregada
 - Todos microservices usufruem da arquitetura limpa
 
+https://github.com/fabriciolfj/arquitetura-microservice-boaspraticas/blob/main/dependencies.png
+
 ## Tecnologias empregadas
 - kubernetes
 - observabilidade
@@ -27,3 +29,4 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
   - oauth2
   - openfeign
   - keycloak
+
