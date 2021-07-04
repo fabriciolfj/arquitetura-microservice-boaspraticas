@@ -7,7 +7,7 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
 ## Arquitetura empregada
 - Todos microservices usufruem da arquitetura limpa
 
-![alt text] (https://github.com/fabriciolfj/arquitetura-microservice-boaspraticas/blob/main/dependencies.png)
+![alt text](https://github.com/fabriciolfj/arquitetura-microservice-boaspraticas/blob/main/dependencies.png)
 
 ## Tecnologias empregadas
 - kubernetes
