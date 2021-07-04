@@ -18,6 +18,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,6 +35,19 @@ public class SpringProductController {
     public GetProductResponse create(@Valid @RequestBody final GetProductRequest request) {
         return controller.process(request);
     }
+
+    @GetMapping("/{describe}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public GetProductResponse find(@PathVariable final String describe) {
+        return controller.findDescribeProduct(describe);
+    }
+
+    @GetMapping("/{value}/link")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public GetProductResponse find(@PathVariable final BigDecimal value) {
+        return controller.findProduct(value);
+    }
+
 
     @ExceptionHandler(ProductNotFoundException.class)
     public ResponseEntity handleProductNotFound(final ProductNotFoundException e) {

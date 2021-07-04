@@ -1,13 +1,14 @@
 package com.github.fabriciolfj.repository;
 
 import com.github.fabriciolfj.entity.Product;
+import com.github.fabriciolfj.entity.Product.ProductBuilder;
 import com.github.fabriciolfj.repository.model.ProductEntity;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-06-29T23:18:38-0300",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.11 (Oracle Corporation)"
+    date = "2021-07-04T19:33:51-0300",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.11 (Ubuntu)"
 )
 public class ProductEntityMapperImpl implements ProductEntityMapper {
 
@@ -27,5 +28,23 @@ public class ProductEntityMapperImpl implements ProductEntityMapper {
         productEntity.setStatus( product.getStatus() );
 
         return productEntity;
+    }
+
+    @Override
+    public Product toModel(ProductEntity entity) {
+        if ( entity == null ) {
+            return null;
+        }
+
+        ProductBuilder product = Product.builder();
+
+        product.code( entity.getCode() );
+        product.describe( entity.getDescribe() );
+        product.dailyWithdrawal( entity.getDaily() );
+        product.limitDailyWithDrawal( entity.getLimit() );
+        product.rate( entity.getRate() );
+        product.status( entity.getStatus() );
+
+        return product.build();
     }
 }
