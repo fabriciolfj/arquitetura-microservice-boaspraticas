@@ -5,6 +5,7 @@ import com.github.fabriciolfj.controller.ProductController;
 import com.github.fabriciolfj.controller.model.GetProductRequest;
 import com.github.fabriciolfj.controller.model.GetProductResponse;
 import com.github.fabriciolfj.entity.exceptions.BusinessException;
+import com.github.fabriciolfj.entity.exceptions.ProductNotFoundException;
 import com.github.fabriciolfj.entity.exceptions.model.Error;
 import com.github.fabriciolfj.entity.exceptions.model.ErrorDetails;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,16 @@ public class SpringProductController {
     @ResponseStatus(HttpStatus.CREATED)
     public GetProductResponse create(@Valid @RequestBody final GetProductRequest request) {
         return controller.process(request);
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity handleProductNotFound(final ProductNotFoundException e) {
+        return ResponseEntity
+                .badRequest()
+                .body(Error.builder()
+                        .message(e.getMessage())
+                        .code(HttpStatus.BAD_REQUEST.toString())
+                        .build());
     }
 
     @ExceptionHandler(BusinessException.class)

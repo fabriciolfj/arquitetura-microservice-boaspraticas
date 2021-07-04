@@ -3,7 +3,6 @@ package com.github.fabriciolfj.business.usercase;
 import com.github.fabriciolfj.business.FindProduct;
 import com.github.fabriciolfj.business.rules.FacadeRuleCase;
 import com.github.fabriciolfj.business.usercase.fixture.ProductFixture;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
