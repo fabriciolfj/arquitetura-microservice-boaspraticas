@@ -36,4 +36,4 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
 - cadastrar produtos financieiros
 - vincular conta a um produto financeiro
 - inserir no cache as regras do produto, para uso no serviço de operações
-- atualizar uso do produto financiero e controle de reset.
+- atualizar uso do produto financeiro e controle de reset.
