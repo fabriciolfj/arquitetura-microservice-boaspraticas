@@ -5,6 +5,7 @@ import com.github.fabriciolfj.business.product.ProductGetCase;
 import com.github.fabriciolfj.business.rules.FacadeRuleCase;
 import com.github.fabriciolfj.controller.model.GetProductRequest;
 import com.github.fabriciolfj.controller.model.GetProductResponse;
+import com.github.fabriciolfj.providers.cache.UpdateCache;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -22,8 +23,8 @@ public class ProductController {
         return ProductControllerMapper.INSTANCE.toResponse(product);
     }
 
-    public GetProductResponse findProduct(final BigDecimal value) {
-        var product = productGetCase.execute(value);
+    public GetProductResponse findProduct(final BigDecimal value, final String customer) {
+        var product = productGetCase.execute(value, customer);
         return ProductControllerMapper.INSTANCE.toResponse(product);
     }
 

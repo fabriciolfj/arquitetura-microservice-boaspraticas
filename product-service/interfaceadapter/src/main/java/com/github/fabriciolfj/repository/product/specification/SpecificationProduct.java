@@ -1,6 +1,6 @@
-package com.github.fabriciolfj.repository.specification;
+package com.github.fabriciolfj.repository.product.specification;
 
-import com.github.fabriciolfj.repository.model.ProductEntity;
+import com.github.fabriciolfj.repository.product.model.ProductEntity;
 import org.springframework.data.jpa.domain.Specification;
 
 public class SpecificationProduct {

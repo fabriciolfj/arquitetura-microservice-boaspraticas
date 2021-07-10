@@ -1,7 +1,7 @@
-package com.github.fabriciolfj.repository;
+package com.github.fabriciolfj.repository.product;
 
 import com.github.fabriciolfj.entity.Product;
-import com.github.fabriciolfj.repository.model.ProductEntity;
+import com.github.fabriciolfj.repository.product.model.ProductEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.repository.model;
+package com.github.fabriciolfj.repository.extract.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,24 +10,22 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "product")
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
-public class ProductEntity {
+@Entity
+@Table(name = "extract")
+@AllArgsConstructor
+@NoArgsConstructor
+public class ExtractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String code;
+    private String client;
     @Column(name = "limit_withdraw")
     private BigDecimal limit;
-    private BigDecimal rate;
     private Integer daily;
-    @Column(name = "description")
-    private String describe;
-    private Integer status;
+    private String product;
+    private BigDecimal rate;
     @CreationTimestamp
     private LocalDateTime created;
     @UpdateTimestamp

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ComponentScan(basePackages = "com.github.fabriciolfj")
 @EnableJpaRepositories(basePackages = "com.github.fabriciolfj.repository")
-@EntityScan(basePackages = "com.github.fabriciolfj.repository.model")
+@EntityScan(basePackages = {"com.github.fabriciolfj.repository.product.model", "com.github.fabriciolfj.repository.extract.model"})
 @SpringBootApplication
 public class Application {
 

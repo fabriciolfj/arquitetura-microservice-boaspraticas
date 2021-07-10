@@ -23,12 +23,6 @@ public class Product {
     private BigDecimal rate;
     private Integer status;
 
-    public BigDecimal applyRate(final BigDecimal value) {
-        var rateApply = value.multiply(rate.divide(BigDecimal.valueOf(100)));
-        log.info("Rate: {}", rateApply);
-        return rateApply;
-    }
-
     public void decrementDailyWithDrawal() {
         --dailyWithdrawal;
     }

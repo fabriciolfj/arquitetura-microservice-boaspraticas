@@ -1,6 +1,6 @@
-package com.github.fabriciolfj.repository;
+package com.github.fabriciolfj.repository.product;
 
-import com.github.fabriciolfj.repository.model.ProductEntity;
+import com.github.fabriciolfj.repository.product.model.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

@@ -42,10 +42,10 @@ public class SpringProductController {
         return controller.findDescribeProduct(describe);
     }
 
-    @GetMapping("/{value}/link")
+    @GetMapping("/{value}/{code}/link")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public GetProductResponse find(@PathVariable final BigDecimal value) {
-        return controller.findProduct(value);
+    public GetProductResponse find(@PathVariable final BigDecimal value, @PathVariable("code") final String codeClient) {
+        return controller.findProduct(value, codeClient);
     }
 
 

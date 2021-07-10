@@ -9,7 +9,7 @@ import java.util.List;
 
 public class RuleBasic extends RuleCase {
 
-    private final BigDecimal rate = BigDecimal.valueOf(2.0);
+    private final BigDecimal rate = BigDecimal.valueOf(4.0);
 
     public RuleBasic(final List<Product> products, final BigDecimal balanceAccount) {
         super(products, balanceAccount);
