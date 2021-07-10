@@ -30,3 +30,10 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
   - openfeign
   - keycloak
 
+## Responsabilidades dos microservices
+
+### Product service
+- cadastrar produtos financieiros
+- vincular conta a um produto financeiro
+- inserir no cache as regras do produto, para uso no serviço de operações
+- atualizar uso do produto financeiro e controle de reset.
