@@ -1,8 +1,6 @@
 package com.github.fabriciolfj.controller;
 
 import com.github.fabriciolfj.business.product.FacadeOperationCase;
-import com.github.fabriciolfj.business.product.impl.UpdateLimitCase;
-import com.github.fabriciolfj.business.product.impl.UpdateWithdrawCase;
 import com.github.fabriciolfj.controller.model.ProductMessageDTO;
 import com.github.fabriciolfj.controller.model.ProductMessageMapper;
 import lombok.RequiredArgsConstructor;
