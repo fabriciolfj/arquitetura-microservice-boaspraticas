@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.business.usercase.cucumber.cenarios.mapper;
+package com.github.fabriciolfj.business.usercase.cucumber.steps.mapper;
 
 import com.github.fabriciolfj.entity.Product;
 import io.cucumber.datatable.DataTable;
