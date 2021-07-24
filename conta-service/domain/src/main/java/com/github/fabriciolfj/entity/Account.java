@@ -20,6 +20,7 @@ public class Account {
     private String cpf;
     private BigDecimal balanceInit;
     private List<Extract> extracts;
+    private String product;
 
     public Account addExtrato(final Extract extract) {
         if (this.extracts == null) {

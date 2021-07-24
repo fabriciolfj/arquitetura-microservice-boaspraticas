@@ -24,10 +24,7 @@ public class AccountCase {
                     var extrato = Extract.execute(account.getBalanceInit(), account.getCode());
                     return account.addExtrato(extrato);
                 })
-                .map(ac -> {
-                    linkProduct.linkProduct(ac);
-                    return ac;
-                })
+                .map(linkProduct::linkProduct)
                 .flatMap(c -> saveAccount.save(c))
                 .orElseThrow(() -> new CreateAccountException("Falha na criação da conta"));
     }

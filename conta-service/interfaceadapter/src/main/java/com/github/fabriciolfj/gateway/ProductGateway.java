@@ -15,8 +15,10 @@ public class ProductGateway implements LinkProduct {
     private final ProductClient productClient;
 
     @Override
-    public void linkProduct(final Account account) {
+    public Account linkProduct(final Account account) {
         var product = productClient.find(account.getBalanceInit(), account.getCode());
         log.info("Product {} link customer {}", product, account.getCode());
+        account.setProduct(product.getCode());;
+        return account;
     }
 }
