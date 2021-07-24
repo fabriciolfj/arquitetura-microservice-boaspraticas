@@ -1,5 +1,6 @@
 package com.github.fabriciolfj.business.account;
 
+import com.github.fabriciolfj.business.LinkProduct;
 import com.github.fabriciolfj.business.SaveAccount;
 import com.github.fabriciolfj.entity.Account;
 import com.github.fabriciolfj.entity.Extract;
@@ -14,6 +15,7 @@ import static java.util.Optional.of;
 public class AccountCase {
 
     private final SaveAccount saveAccount;
+    private final LinkProduct linkProduct;
 
     public Account create(final Account account) {
         return of(account)
@@ -21,6 +23,10 @@ public class AccountCase {
                 .map(c -> {
                     var extrato = Extract.execute(account.getBalanceInit(), account.getCode());
                     return account.addExtrato(extrato);
+                })
+                .map(ac -> {
+                    linkProduct.linkProduct(ac);
+                    return ac;
                 })
                 .flatMap(c -> saveAccount.save(c))
                 .orElseThrow(() -> new CreateAccountException("Falha na criação da conta"));
