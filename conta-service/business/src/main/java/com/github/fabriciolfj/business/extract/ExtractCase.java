@@ -26,17 +26,15 @@ public class ExtractCase {
                     var newExtract = Extract.newExtract(value, codeAccount, typeOperation);
                     return newExtract.calculate(extract);
                 })
-                .map(ext -> {
-                    save(ext);
-                    return ext;
-                })
+                .map(this::save)
                 .orElseThrow(() -> new ExtractProcessException("Fail processo execute extract by account: " + codeAccount));
 
     }
 
-    private void save(final Extract extract) {
+    private Extract save(final Extract extract) {
         try {
             saveExtract.save(extract);
+            return extract;
         } catch (Exception e) {
             throw new ExtractProcessException("Fail save extract, details: " + e.getMessage());
         }
