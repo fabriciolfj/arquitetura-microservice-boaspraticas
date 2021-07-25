@@ -18,7 +18,6 @@ public class ProductGateway implements LinkProduct {
     public Account linkProduct(final Account account) {
         var product = productClient.find(account.getBalanceInit(), account.getCode());
         log.info("Product {} link customer {}", product, account.getCode());
-        account.setProduct(product.getCode());;
-        return account;
+        return account.addProduct(product.getCode());
     }
 }

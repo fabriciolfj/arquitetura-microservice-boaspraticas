@@ -22,6 +22,11 @@ public class Account {
     private List<Extract> extracts;
     private String product;
 
+    public Account addProduct(final String code) {
+        product = code;
+        return this;
+    }
+
     public Account addExtrato(final Extract extract) {
         if (this.extracts == null) {
             this.extracts = new ArrayList<>();
