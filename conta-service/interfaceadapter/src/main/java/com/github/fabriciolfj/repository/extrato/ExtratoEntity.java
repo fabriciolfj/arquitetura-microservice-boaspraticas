@@ -1,6 +1,5 @@
 package com.github.fabriciolfj.repository.extrato;
 
-import com.github.fabriciolfj.repository.conta.ContaEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,11 +21,11 @@ public class ExtratoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "conta_id")
-    private ContaEntity conta;
+    @Column(name = "conta")
+    private String conta;
     private BigDecimal debit;
     private BigDecimal credit;
     private BigDecimal balance;
+    @Column(name = "date_extrato")
     private LocalDateTime dateExtrato;
 }

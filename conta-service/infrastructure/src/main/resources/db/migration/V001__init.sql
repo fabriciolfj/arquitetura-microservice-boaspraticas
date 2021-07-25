@@ -10,11 +10,10 @@ unique(cpf)
 
 create table extrato(
 id bigint not null auto_increment,
-conta_id bigint not null,
+conta varchar(100) not null,
 debit decimal(10,4) not null,
 credit decimal(10,4) not null,
 balance decimal(10,5) not null,
-date datetime not null,
-primary key (id),
-foreign key (conta_id) references  conta (id)
+date_extrato datetime not null,
+primary key (id)
 ) engine=InnoDB default charset=utf8;

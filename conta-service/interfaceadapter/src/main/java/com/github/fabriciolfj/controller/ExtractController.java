@@ -1,6 +1,6 @@
 package com.github.fabriciolfj.controller;
 
-import com.github.fabriciolfj.business.account.ExtractCase;
+import com.github.fabriciolfj.business.extract.ExtractCase;
 import com.github.fabriciolfj.entity.TypeOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

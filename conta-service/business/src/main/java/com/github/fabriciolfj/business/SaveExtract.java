@@ -2,7 +2,7 @@ package com.github.fabriciolfj.business;
 
 import com.github.fabriciolfj.entity.Extract;
 
-public interface CreateExtract {
+public interface SaveExtract {
 
-    void create(final Extract extract);
+    void save(final Extract extract);
 }

@@ -3,6 +3,7 @@ package com.github.fabriciolfj.springController;
 import com.github.fabriciolfj.controller.AccountController;
 import com.github.fabriciolfj.controller.model.AccountRequest;
 import com.github.fabriciolfj.entity.exceptions.DomainException;
+import com.github.fabriciolfj.entity.exceptions.ProductClientException;
 import com.github.fabriciolfj.entity.exceptions.model.ErrorMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,4 +32,15 @@ public class SpringAccountController {
                         .message(e.getMessage())
                         .build());
     }
+
+    @ExceptionHandler(ProductClientException.class)
+    public ResponseEntity<ErrorMessage> productClientException(final ProductClientException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ErrorMessage.builder()
+                        .code(HttpStatus.BAD_REQUEST.toString())
+                        .message(e.getMessage())
+                        .build());
+    }
+
+
 }

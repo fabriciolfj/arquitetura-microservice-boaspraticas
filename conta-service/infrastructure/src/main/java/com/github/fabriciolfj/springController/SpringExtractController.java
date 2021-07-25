@@ -24,7 +24,7 @@ public class SpringExtractController {
         extractController.createDebit(code, value);
     }
 
-    @PostMapping("/debit")
+    @PostMapping("/credit")
     @ResponseStatus(HttpStatus.CREATED)
     public void requestCredit(@RequestParam("value") final BigDecimal value, @RequestParam("code") final String code) {
         extractController.createCredit(code, value);

@@ -11,7 +11,8 @@ public interface ExtratoMapper {
 
     ExtratoMapper INSTANCE = Mappers.getMapper(ExtratoMapper.class);
 
-    @Mapping(target = "conta", ignore = true)
+    @Mapping(target = "conta", source = "codeConta")
+    @Mapping(target = "dateExtrato", source = "date")
     ExtratoEntity toEntity(final Extract extrato);
 
     @Mapping(target = "debit", source = "debit")

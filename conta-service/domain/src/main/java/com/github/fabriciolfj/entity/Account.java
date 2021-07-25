@@ -1,5 +1,6 @@
 package com.github.fabriciolfj.entity;
 
+import com.github.fabriciolfj.entity.exceptions.ExtractNotFoundException;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -34,6 +35,11 @@ public class Account {
 
         this.extracts.add(extract);
         return this;
+    }
+
+    public Extract findFirst() {
+        return extracts.stream().findFirst()
+                .orElseThrow(() -> new ExtractNotFoundException("Extract not found, to account: " + code));
     }
 
     public Account genereteCode() {

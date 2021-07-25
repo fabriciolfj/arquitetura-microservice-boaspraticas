@@ -37,8 +37,12 @@ public class Extract {
         switch (operation) {
             case CREDIT:
                 extract.setCredit(value);
+                extract.setDebit(BigDecimal.ZERO);
+                break;
             case DEBIT:
                 extract.setDebit(value);
+                extract.setCredit(BigDecimal.ZERO);
+                break;
         }
 
         return extract;
@@ -50,12 +54,16 @@ public class Extract {
             case EQUALS:
                 value = last.balance.add(credit);
                 balance = value;
+                break;
             case DIF:
                 value = last.balance.subtract(debit);
                 balance = value;
+                break;
             default:
                 throw new DomainException("Operation calculate extract fail");
         }
+
+        return this;
     }
 
     private static Extract extractDefault(final String code) {
