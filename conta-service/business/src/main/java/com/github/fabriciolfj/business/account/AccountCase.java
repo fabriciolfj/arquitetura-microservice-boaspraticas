@@ -21,7 +21,7 @@ public class AccountCase {
         return of(account)
                 .map(Account::genereteCode)
                 .map(c -> {
-                    var extrato = Extract.execute(account.getBalanceInit(), account.getCode());
+                    var extrato = Extract.initial(account.getBalanceInit(), account.getCode());
                     return account.addExtrato(extrato);
                 })
                 .map(linkProduct::linkProduct)

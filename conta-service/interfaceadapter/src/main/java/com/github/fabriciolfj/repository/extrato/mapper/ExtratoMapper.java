@@ -7,10 +7,16 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface ExtratoEntityMapper {
+public interface ExtratoMapper {
 
-    ExtratoEntityMapper INSTANCE = Mappers.getMapper(ExtratoEntityMapper.class);
+    ExtratoMapper INSTANCE = Mappers.getMapper(ExtratoMapper.class);
 
     @Mapping(target = "conta", ignore = true)
     ExtratoEntity toEntity(final Extract extrato);
+
+    @Mapping(target = "debit", source = "debit")
+    @Mapping(target = "credit", source = "credit")
+    @Mapping(target = "balance", source = "balance")
+    @Mapping(target = "date", source = "dateExtrato")
+    Extract toDomain(final ExtratoEntity extratoEntity);
 }
