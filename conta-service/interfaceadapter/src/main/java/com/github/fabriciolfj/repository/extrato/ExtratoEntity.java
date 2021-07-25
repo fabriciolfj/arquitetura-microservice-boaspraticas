@@ -28,5 +28,5 @@ public class ExtratoEntity {
     private BigDecimal debit;
     private BigDecimal credit;
     private BigDecimal balance;
-    private LocalDateTime date;
+    private LocalDateTime dateExtrato;
 }
