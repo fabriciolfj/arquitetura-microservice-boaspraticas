@@ -15,4 +15,8 @@ public interface AccountMapper {
     @Mapping(target = "balanceInit", source = "balance")
     @Mapping(target = "extracts", ignore = true)
     Account toDomain(final AccountRequest request);
+
+    @Mapping(target = "cpf", source = "cpf")
+    @Mapping(target = "account", source = "code")
+    AccountResponse toResponse(final Account account);
 }

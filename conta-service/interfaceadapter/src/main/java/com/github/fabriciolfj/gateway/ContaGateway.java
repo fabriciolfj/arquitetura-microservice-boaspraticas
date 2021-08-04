@@ -1,5 +1,6 @@
 package com.github.fabriciolfj.gateway;
 
+import com.github.fabriciolfj.business.FindAccount;
 import com.github.fabriciolfj.business.SaveAccount;
 import com.github.fabriciolfj.entity.Account;
 import com.github.fabriciolfj.repository.conta.ContaRepository;
@@ -17,7 +18,7 @@ import static java.util.Optional.of;
 
 @Service
 @RequiredArgsConstructor
-public class ContaGateway implements SaveAccount {
+public class ContaGateway implements SaveAccount, FindAccount {
 
     private final ContaRepository contaRepository;
     private final ExtratoRepository extratoRepository;
@@ -33,8 +34,15 @@ public class ContaGateway implements SaveAccount {
                 });
     }
 
+    @Override
+    public Optional<Account> findAccountByCPF(final String cpf) {
+        return contaRepository.findByCpf(cpf)
+                .map(ContaMapper.INSTANCE::toDomain);
+    }
+
     private void saveExtrato(final Account account) {
         var extrato = ExtratoMapper.INSTANCE.toEntity(account.findFirst());
         extratoRepository.save(extrato);
     }
+
 }
