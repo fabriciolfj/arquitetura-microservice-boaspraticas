@@ -24,7 +24,7 @@ public class ExtractGateway implements LinkProductCustomer {
         updateCache.add(product, customer);
     }
 
-    private void save(Product product, String customer) {
+    private void save(final Product product, final String customer) {
         var extract = ExtractEntityMapper.INSTANCE.toEntity(product);
         extract.setClient(customer);
         extractEntityRepository.save(extract);
