@@ -19,9 +19,9 @@ public class ExtractGateway implements LinkProductCustomer {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public void link(final Product product, final String customer) {
-        save(product, customer);
-        updateCache.add(product, customer);
+    public void link(final Product product, final String code) {
+        save(product, code);
+        updateCache.add(product, code);
     }
 
     private void save(final Product product, final String customer) {

@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.controller.model;
+package com.github.fabriciolfj.provider.cache.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,12 +9,10 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductMessageDTO {
+public class ProductCacheDTO {
 
-    private String account;
     private String code;
     private Integer dailyWithdrawal;
     private BigDecimal limitDailyWithDrawal;
     private BigDecimal rate;
-    private BigDecimal value;
 }

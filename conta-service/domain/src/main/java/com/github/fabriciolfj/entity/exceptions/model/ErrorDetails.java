@@ -1,11 +1,13 @@
 package com.github.fabriciolfj.entity.exceptions.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-public class ErroDetails {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ErrorDetails {
 
     private String field;
     private String message;

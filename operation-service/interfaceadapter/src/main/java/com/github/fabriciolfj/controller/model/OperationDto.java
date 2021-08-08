@@ -7,14 +7,10 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class ProductMessageDTO {
+@AllArgsConstructor
+public class OperationDto {
 
-    private String account;
     private String code;
-    private Integer dailyWithdrawal;
-    private BigDecimal limitDailyWithDrawal;
-    private BigDecimal rate;
     private BigDecimal value;
 }

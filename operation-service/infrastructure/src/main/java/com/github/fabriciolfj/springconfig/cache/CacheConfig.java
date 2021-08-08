@@ -1,7 +1,7 @@
 package com.github.fabriciolfj.springconfig.cache;
 
 
-import com.github.fabriciolfj.providers.cache.model.ProductCacheDTO;
+import com.github.fabriciolfj.provider.cache.model.ProductCacheDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;

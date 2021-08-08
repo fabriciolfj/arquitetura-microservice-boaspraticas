@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.exceptions;
+package com.github.fabriciolfj.domain.exceptions;
 
 public class AccountException extends RuntimeException {
 

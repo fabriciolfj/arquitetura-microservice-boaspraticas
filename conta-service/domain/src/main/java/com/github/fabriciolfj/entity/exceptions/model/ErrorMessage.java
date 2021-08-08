@@ -15,5 +15,5 @@ public class ErrorMessage {
 
     private String message;
     private String code;
-    private List<ErroDetails> details;
+    private List<ErrorDetails> details;
 }

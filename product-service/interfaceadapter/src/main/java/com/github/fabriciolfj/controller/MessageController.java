@@ -21,7 +21,7 @@ public class MessageController {
     public Consumer<ProductMessageDTO> operation() {
         return c -> {
             log.info("Received limite message: {}", c.toString());
-            facadeOperationCase.execute(ProductMessageMapper.INSTANCE.toDomain(c), c.getValue(), c.getCustomer());
+            facadeOperationCase.execute(ProductMessageMapper.INSTANCE.toDomain(c), c.getValue(), c.getAccount());
         };
     }
 }
