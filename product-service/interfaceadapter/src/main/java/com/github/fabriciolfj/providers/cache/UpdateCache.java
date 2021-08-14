@@ -16,9 +16,9 @@ public class UpdateCache {
     @Qualifier("product")
     private final Cache cache;
 
-    public void add(final Product product, final String code) {
+    public void add(final Product product, final String account) {
         var dto = CacheMapper.INSTANCE.toDto(product);
         log.info("Cache: {}", dto);
-        cache.put(code, dto);
+        cache.put(account, dto);
     }
 }

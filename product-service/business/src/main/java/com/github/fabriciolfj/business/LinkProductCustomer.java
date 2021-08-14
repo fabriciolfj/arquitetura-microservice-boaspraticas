@@ -4,5 +4,5 @@ import com.github.fabriciolfj.entity.Product;
 
 public interface LinkProductCustomer {
 
-    void link(final Product product, final String customer);
+    void link(final Product product, final String account);
 }

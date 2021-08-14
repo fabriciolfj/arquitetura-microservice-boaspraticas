@@ -1,6 +1,5 @@
 package com.github.fabriciolfj.provider.message;
 
-import com.github.fabriciolfj.UpdateProduct;
 import com.github.fabriciolfj.domain.entity.Product;
 import com.github.fabriciolfj.provider.message.model.ProductMessageDTO;
 import com.github.fabriciolfj.provider.message.model.ProductMessageMapper;

@@ -11,6 +11,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class OperationDto {
 
-    private String code;
+    private String account;
     private BigDecimal value;
 }

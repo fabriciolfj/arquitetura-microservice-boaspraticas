@@ -19,14 +19,14 @@ public class ExtractGateway implements LinkProductCustomer {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public void link(final Product product, final String code) {
-        save(product, code);
-        updateCache.add(product, code);
+    public void link(final Product product, final String account) {
+        save(product, account);
+        updateCache.add(product, account);
     }
 
-    private void save(final Product product, final String customer) {
+    private void save(final Product product, final String account) {
         var extract = ExtractEntityMapper.INSTANCE.toEntity(product);
-        extract.setClient(customer);
+        extract.setClient(account);
         extractEntityRepository.save(extract);
     }
 }

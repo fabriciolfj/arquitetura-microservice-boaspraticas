@@ -17,9 +17,9 @@ public class ProductGetCase {
     private final FacadeRuleCase facadeRuleCase;
     private final LinkProductCustomer linkProductCustomer;
 
-    public Product execute(final BigDecimal value, final String customer) {
+    public Product execute(final BigDecimal value, final String account) {
         var product = facadeRuleCase.execute(value);
-        linkProductCustomer.link(product, customer);
+        linkProductCustomer.link(product, account);
         return product;
     }
 

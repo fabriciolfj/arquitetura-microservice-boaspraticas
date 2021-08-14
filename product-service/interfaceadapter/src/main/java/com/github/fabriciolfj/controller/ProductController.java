@@ -23,8 +23,8 @@ public class ProductController {
         return ProductControllerMapper.INSTANCE.toResponse(product);
     }
 
-    public GetProductResponse findProduct(final BigDecimal value, final String customer) {
-        var product = productGetCase.execute(value, customer);
+    public GetProductResponse findProduct(final BigDecimal value, final String account) {
+        var product = productGetCase.execute(value, account);
         return ProductControllerMapper.INSTANCE.toResponse(product);
     }
 
