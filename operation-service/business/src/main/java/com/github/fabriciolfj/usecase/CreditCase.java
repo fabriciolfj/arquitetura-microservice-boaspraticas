@@ -1,9 +1,18 @@
 package com.github.fabriciolfj.usecase;
 
-import lombok.NoArgsConstructor;
+import com.github.fabriciolfj.CreateCredit;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+
 @Component
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class CreditCase {
+
+    private final CreateCredit createCredit;
+
+    public void execute(final String account, final BigDecimal value) {
+        createCredit.createdCredit(value, account);
+    }
 }
