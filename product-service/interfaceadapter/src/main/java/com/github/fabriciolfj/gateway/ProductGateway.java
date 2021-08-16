@@ -52,4 +52,10 @@ public class ProductGateway implements SaveProduct, FindProduct {
                 .findFirst()
                 .orElseThrow(() -> new ProductNotFoundException("Product not found. Describe: " + describe));
     }
+
+    @Override
+    public Optional<Product> findByCode(String code) {
+        return productRepository.findByCode(code)
+                .map(ProductEntityMapper.INSTANCE::toModel);
+    }
 }

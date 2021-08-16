@@ -1,8 +1,9 @@
 package com.github.fabriciolfj.gateway;
 
 import com.github.fabriciolfj.business.LinkProductCustomer;
+import com.github.fabriciolfj.business.UpdateCache;
 import com.github.fabriciolfj.entity.Product;
-import com.github.fabriciolfj.providers.cache.UpdateCache;
+import com.github.fabriciolfj.providers.cache.CacheProvider;
 import com.github.fabriciolfj.repository.extract.ExtractEntityMapper;
 import com.github.fabriciolfj.repository.extract.ExtractEntityRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,21 +13,26 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor
-public class ExtractGateway implements LinkProductCustomer {
+public class ExtractGateway implements LinkProductCustomer, UpdateCache {
 
     private final ExtractEntityRepository extractEntityRepository;
-    private final UpdateCache updateCache;
+    private final CacheProvider cacheProvider;
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void link(final Product product, final String account) {
         save(product, account);
-        updateCache.add(product, account);
+        cacheProvider.add(product, account);
     }
 
     private void save(final Product product, final String account) {
         var extract = ExtractEntityMapper.INSTANCE.toEntity(product);
         extract.setClient(account);
         extractEntityRepository.save(extract);
+    }
+
+    @Override
+    public void execute(final Product product, final String account) {
+        cacheProvider.add(product, account);
     }
 }

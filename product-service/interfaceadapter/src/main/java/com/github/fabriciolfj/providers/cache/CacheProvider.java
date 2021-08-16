@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Log4j2
 @Component
 @RequiredArgsConstructor
-public class UpdateCache {
+public class CacheProvider {
 
     @Qualifier("product")
     private final Cache cache;
