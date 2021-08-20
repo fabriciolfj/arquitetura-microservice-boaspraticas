@@ -5,8 +5,6 @@ import com.github.fabriciolfj.business.SaveAccount;
 import com.github.fabriciolfj.entity.Account;
 import com.github.fabriciolfj.repository.conta.ContaRepository;
 import com.github.fabriciolfj.repository.conta.mapper.ContaMapper;
-import com.github.fabriciolfj.repository.extrato.ExtratoRepository;
-import com.github.fabriciolfj.repository.extrato.mapper.ExtratoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,7 +19,7 @@ import static java.util.Optional.of;
 public class ContaGateway implements SaveAccount, FindAccount {
 
     private final ContaRepository contaRepository;
-    private final ExtratoRepository extratoRepository;
+    private final ExtractGateway extractGateway;
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
@@ -29,7 +27,7 @@ public class ContaGateway implements SaveAccount, FindAccount {
         return of(ContaMapper.INSTANCE.toEntity(account))
                 .map(conta -> {
                     contaRepository.save(conta);
-                    saveExtrato(account);
+                    extractGateway.saveExtrato(account);
                     return account;
                 });
     }
@@ -38,11 +36,6 @@ public class ContaGateway implements SaveAccount, FindAccount {
     public Optional<Account> findAccountByCPF(final String cpf) {
         return contaRepository.findByCpf(cpf)
                 .map(ContaMapper.INSTANCE::toDomain);
-    }
-
-    private void saveExtrato(final Account account) {
-        var extrato = ExtratoMapper.INSTANCE.toEntity(account.findFirst());
-        extratoRepository.save(extrato);
     }
 
 }

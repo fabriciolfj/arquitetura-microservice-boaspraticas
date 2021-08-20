@@ -2,6 +2,7 @@ create table conta (
 id bigint not null auto_increment,
 code varchar(100) not null,
 cpf varchar(11) not null,
+product varchar(100) not null,
 created datetime not null,
 updated datetime,
 primary key (id),

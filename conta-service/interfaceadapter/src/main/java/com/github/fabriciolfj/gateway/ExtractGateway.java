@@ -2,6 +2,7 @@ package com.github.fabriciolfj.gateway;
 
 import com.github.fabriciolfj.business.FindExtract;
 import com.github.fabriciolfj.business.SaveExtract;
+import com.github.fabriciolfj.entity.Account;
 import com.github.fabriciolfj.entity.Extract;
 import com.github.fabriciolfj.repository.extrato.ExtratoRepository;
 import com.github.fabriciolfj.repository.extrato.mapper.ExtratoMapper;
@@ -26,5 +27,10 @@ public class ExtractGateway implements FindExtract, SaveExtract {
     public void save(final Extract extract) {
         var entity = ExtratoMapper.INSTANCE.toEntity(extract);
         extratoRepository.save(entity);
+    }
+
+    public void saveExtrato(final Account account) {
+        var extrato = ExtratoMapper.INSTANCE.toEntity(account.findFirst());
+        extratoRepository.save(extrato);
     }
 }

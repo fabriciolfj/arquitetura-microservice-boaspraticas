@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.provider.product;
+package com.github.fabriciolfj.provider.product.http;
 
 import com.github.fabriciolfj.provider.product.decoder.ProductConfiguration;
 import com.github.fabriciolfj.provider.product.model.GetProductResponse;
