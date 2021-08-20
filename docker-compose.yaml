@@ -28,6 +28,16 @@ services:
       depends_on:
         - postgres
 
+  product:
+    image: fabricio211/product-finance
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+     - 9080:8080
+    depends_on:
+      mysql:
+        condition: service_healthy
+
   mysql:
     image: mysql
     command: --lower_case_table_names=1
@@ -37,6 +47,11 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "no"
     ports:
       - 3306:3306
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES;\""
+      interval: 5s
+      timeout: 2s
+      retries: 60    
 
   zookeeper:
     image: debezium/zookeeper:1.1
@@ -44,8 +59,6 @@ services:
       - 2181:2181
       - 2888:2888
       - 3888:3888
-    networks:
-      - kafka-net 
 
   kafka:
     image: debezium/kafka:1.1
@@ -55,8 +68,6 @@ services:
       - zookeeper
     environment:
       - ZOOKEEPER_CONNECT=zookeeper:2181
-    networks:
-      - kafka-net
 
   redis:
     image: redis:alpine
@@ -71,9 +82,6 @@ services:
     ports:
       - "9411:9411"
 
-networks:
-  kafka-net:
-    driver: bridge
 
 volumes:
   postgres_data:

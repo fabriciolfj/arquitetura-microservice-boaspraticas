@@ -14,7 +14,7 @@ primary key (id)
 
 create table extract (
 id bigint not null auto_increment,
-client varchar(100) not null,
+account varchar(100) not null,
 product varchar(100) not null,
 limit_withdraw decimal(10,4) not null,
 daily int not null,

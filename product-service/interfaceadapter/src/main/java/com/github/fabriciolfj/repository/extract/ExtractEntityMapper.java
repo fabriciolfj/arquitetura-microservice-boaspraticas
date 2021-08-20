@@ -1,5 +1,6 @@
 package com.github.fabriciolfj.repository.extract;
 
+import com.github.fabriciolfj.entity.Extract;
 import com.github.fabriciolfj.entity.Product;
 import com.github.fabriciolfj.repository.extract.model.ExtractEntity;
 import org.mapstruct.Mapper;
@@ -16,4 +17,9 @@ public interface ExtractEntityMapper {
     @Mapping(target = "limit", source = "limitDailyWithDrawal")
     @Mapping(target = "rate", source = "rate")
     ExtractEntity toEntity(final Product product);
+
+
+    @Mapping(target = "product", source = "product")
+    @Mapping(target = "account", source = "account")
+    Extract toDomain(final ExtractEntity entity);
 }

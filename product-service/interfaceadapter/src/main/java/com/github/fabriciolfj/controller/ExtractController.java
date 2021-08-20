@@ -11,7 +11,7 @@ public class ExtractController {
 
     private final ExtractCase extractCase;
 
-    @Scheduled(cron = "* * 23 59 * ?" )
+    @Scheduled(cron = "* * 23 * * ?" )
     public void reset() {
         extractCase.execute();
     }

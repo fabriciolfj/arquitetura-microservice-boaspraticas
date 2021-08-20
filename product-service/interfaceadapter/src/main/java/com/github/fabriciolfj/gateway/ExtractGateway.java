@@ -1,7 +1,9 @@
 package com.github.fabriciolfj.gateway;
 
+import com.github.fabriciolfj.business.FindAllExtract;
 import com.github.fabriciolfj.business.LinkProductCustomer;
 import com.github.fabriciolfj.business.UpdateCache;
+import com.github.fabriciolfj.entity.Extract;
 import com.github.fabriciolfj.entity.Product;
 import com.github.fabriciolfj.providers.cache.CacheProvider;
 import com.github.fabriciolfj.repository.extract.ExtractEntityMapper;
@@ -11,9 +13,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 @RequiredArgsConstructor
-public class ExtractGateway implements LinkProductCustomer, UpdateCache {
+public class ExtractGateway implements LinkProductCustomer, UpdateCache, FindAllExtract {
 
     private final ExtractEntityRepository extractEntityRepository;
     private final CacheProvider cacheProvider;
@@ -27,12 +32,19 @@ public class ExtractGateway implements LinkProductCustomer, UpdateCache {
 
     private void save(final Product product, final String account) {
         var extract = ExtractEntityMapper.INSTANCE.toEntity(product);
-        extract.setClient(account);
+        extract.setAccount(account);
         extractEntityRepository.save(extract);
     }
 
     @Override
     public void execute(final Product product, final String account) {
         cacheProvider.add(product, account);
+    }
+
+    @Override
+    public List<Extract> findAll() {
+        return extractEntityRepository.findAll()
+                .stream().map(ExtractEntityMapper.INSTANCE::toDomain)
+                .collect(Collectors.toList());
     }
 }

@@ -20,7 +20,7 @@ public class ExtractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String client;
+    private String account;
     @Column(name = "limit_withdraw")
     private BigDecimal limit;
     private Integer daily;
