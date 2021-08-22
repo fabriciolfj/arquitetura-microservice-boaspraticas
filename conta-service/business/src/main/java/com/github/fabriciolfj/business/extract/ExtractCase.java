@@ -6,6 +6,8 @@ import com.github.fabriciolfj.entity.Extract;
 import com.github.fabriciolfj.entity.TypeOperation;
 import com.github.fabriciolfj.entity.exceptions.ExtractProcessException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -18,6 +20,10 @@ public class ExtractCase {
 
     private final FindExtract findExtract;
     private final SaveExtract saveExtract;
+
+    public Page<Extract> findAll(final String account, final Pageable pageable) {
+        return findExtract.findAll(account, pageable);
+    }
 
     public Extract execute(final String codeAccount, final BigDecimal value, final TypeOperation typeOperation) {
         return ofNullable(codeAccount)

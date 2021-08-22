@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.controller.model;
+package com.github.fabriciolfj.controller.account.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

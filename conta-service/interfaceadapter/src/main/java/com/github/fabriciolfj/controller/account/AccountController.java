@@ -1,9 +1,9 @@
-package com.github.fabriciolfj.controller;
+package com.github.fabriciolfj.controller.account;
 
 import com.github.fabriciolfj.business.account.AccountCase;
-import com.github.fabriciolfj.controller.model.AccountMapper;
-import com.github.fabriciolfj.controller.model.AccountRequest;
-import com.github.fabriciolfj.controller.model.AccountResponse;
+import com.github.fabriciolfj.controller.account.model.AccountMapper;
+import com.github.fabriciolfj.controller.account.model.AccountRequest;
+import com.github.fabriciolfj.controller.account.model.AccountResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

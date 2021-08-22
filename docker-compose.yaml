@@ -33,10 +33,30 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     ports:
-     - 9080:8080
+     - 6000:6000
     depends_on:
       mysql:
         condition: service_healthy
+
+  account:
+    image: fabricio211/account-finance
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+     - 7000:7000
+    depends_on:
+      mysql:
+        condition: service_healthy    
+
+  operation:
+    image: fabricio211/operation-finance
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+     - 9000:9000
+    depends_on:
+      mysql:
+        condition: service_healthy        
 
   mysql:
     image: mysql

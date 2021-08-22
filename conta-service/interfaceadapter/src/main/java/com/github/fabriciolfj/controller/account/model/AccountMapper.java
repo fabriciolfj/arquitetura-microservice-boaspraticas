@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.controller.model;
+package com.github.fabriciolfj.controller.account.model;
 
 import com.github.fabriciolfj.entity.Account;
 import org.mapstruct.Mapper;

@@ -1,5 +1,5 @@
 server:
-  port: 8181
+  port: 6000
   shutdown: graceful
   tomcat:
     accept-count: 100
@@ -64,6 +64,8 @@ management:
     prometheus:
       enabled: true
 
+cron:
+  reset: "* * 23 * * ?"
 ---
 spring.config.activate.on-profile: docker
 

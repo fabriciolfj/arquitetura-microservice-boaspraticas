@@ -2,7 +2,7 @@ account:
   url: http://localhost:9090
 
 server:
-  port: 7000
+  port: 9000
 spring:
   application:
     name: operation
@@ -36,3 +36,14 @@ management:
       enabled: false
     prometheus:
       enabled: true
+
+---
+spring:
+  config.activate.on-profile: docker
+  redis:
+    host: redis
+  kafka:
+    bootstrap-servers:
+      - kafka:9092
+account:
+  url: http://account:7000

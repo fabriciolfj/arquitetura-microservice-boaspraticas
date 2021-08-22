@@ -1,8 +1,8 @@
 package com.github.fabriciolfj.springController;
 
-import com.github.fabriciolfj.controller.AccountController;
-import com.github.fabriciolfj.controller.model.AccountRequest;
-import com.github.fabriciolfj.controller.model.AccountResponse;
+import com.github.fabriciolfj.controller.account.AccountController;
+import com.github.fabriciolfj.controller.account.model.AccountRequest;
+import com.github.fabriciolfj.controller.account.model.AccountResponse;
 import com.github.fabriciolfj.entity.exceptions.AccountNotFoundException;
 import com.github.fabriciolfj.entity.exceptions.DomainException;
 import com.github.fabriciolfj.entity.exceptions.ProductClientException;

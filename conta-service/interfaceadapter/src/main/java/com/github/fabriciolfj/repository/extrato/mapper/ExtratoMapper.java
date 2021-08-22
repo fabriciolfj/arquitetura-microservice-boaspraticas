@@ -15,6 +15,7 @@ public interface ExtratoMapper {
     @Mapping(target = "dateExtrato", source = "date")
     ExtratoEntity toEntity(final Extract extrato);
 
+    @Mapping(target = "codeConta", source = "conta")
     @Mapping(target = "debit", source = "debit")
     @Mapping(target = "credit", source = "credit")
     @Mapping(target = "balance", source = "balance")
