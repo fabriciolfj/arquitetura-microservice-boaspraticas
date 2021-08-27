@@ -21,8 +21,8 @@ spring:
     hikari:
       maximum-pool-size: 5
       minimum-idle: 3
-      idle-timeout: 1000
-    url: jdbc:mysql://192.68.0.106:3306/financeiro?createDatabaseIfNotExist=true&serverTimezone=UTC
+      idle-timeout: 10000
+    url: jdbc:mysql://192.68.0.106:3307/financeiro?createDatabaseIfNotExist=true&serverTimezone=UTC
     password: root
     username: root
   jpa:

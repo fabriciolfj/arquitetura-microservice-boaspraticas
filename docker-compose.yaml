@@ -32,7 +32,6 @@ services:
     image: mysql
     command: --lower_case_table_names=1
     environment:
-      MYSQL_DATABASE: "financeiro"
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_ALLOW_EMPTY_PASSWORD: "no"
     ports:
@@ -41,7 +40,21 @@ services:
       test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES;\""
       interval: 5s
       timeout: 2s
-      retries: 60    
+      retries: 60
+
+  mysql2:
+    image: mysql
+    command: --lower_case_table_names=1
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+    ports:
+      - 3307:3307
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES;\""
+      interval: 5s
+      timeout: 2s
+      retries: 60
 
   zookeeper:
     image: debezium/zookeeper:1.1
