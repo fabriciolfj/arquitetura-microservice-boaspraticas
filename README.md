@@ -19,7 +19,6 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
   - spring sleuth
   - service discovery consul
   - lombok
-  - zipkin
   - prometheus
   - grafana
   - redis
