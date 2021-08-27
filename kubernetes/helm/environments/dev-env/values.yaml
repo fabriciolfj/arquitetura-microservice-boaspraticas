@@ -1,0 +1,18 @@
+secrets:
+
+  mysql-credentials:
+    SPRING_DATASOURCE_USERNAME: root
+    SPRING_DATASOURCE_PASSWORD: root
+
+product:
+  envFromSecretRefs:
+    - mysql-credentials
+
+conta:
+  envFromSecretRefs:
+    - mysql-credentials
+
+destinationRules:
+  - name: product
+  - name: operation
+  - name: account

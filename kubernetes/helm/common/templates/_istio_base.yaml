@@ -1,0 +1,58 @@
+{{- define "common.istio_base" -}}
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: default
+spec:
+  mtls:
+    mode: PERMISSIVE
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: microservices-on-gw
+spec:
+  selector:
+    istio: ingressgateway #será manipulado pelo ingress padrao do istio
+  servers:
+  - hosts:
+    - microservices.me
+    port:
+      name: https
+      number: 443
+      protocol: HTTPS
+    tls:
+      credentialName: microservices-on-certificate # nome do certificado utilizado
+      mode: SIMPLE #semantica normal será aplicada.
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: microservices-on-vs
+spec:
+  gateways:
+  - microservices-on-gw
+  hosts:
+  - microservices.me #especifica encaminhara solicitacoes para este host, atraves do gateway microservices-on-gw
+  http:
+  - match:
+    - uri:
+        prefix: /account
+    route:
+    - destination:
+        host: conta
+  - match:
+    - uri:
+        prefix: /product
+    route:
+    - destination:
+        host: product
+  - match:
+    - uri:
+        prefix: /operation
+    route:
+    - destination:
+        host: operation
+        port:
+          number: 80
+{{- end -}}

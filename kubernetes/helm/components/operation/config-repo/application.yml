@@ -1,13 +1,21 @@
 account:
-  url: http://localhost:9090
+  url: http://account
 
 server:
-  port: 9001
+  port: 80
+  shutdown: graceful
+  tomcat:
+    accept-count: 100
+    connection-timeout: 2000
+    max-connections: 8192
+    threads:
+      max: 200
+      min-spare: 20
 spring:
   application:
     name: operation
   redis:
-    host: localhost
+    host: 192.168.0.106
     port: 6379
   cloud:
     stream:
@@ -17,12 +25,12 @@ spring:
           content-type: application/json
           destination: operation-group
   kafka:
-    bootstrap-servers: localhost:9092
-
+    bootstrap-servers: 192.168.0.106:9092
 
 
 management:
-
+  server:
+    port: 4004
   endpoints:
     web:
       exposure:
@@ -36,14 +44,3 @@ management:
       enabled: false
     prometheus:
       enabled: true
-
----
-spring:
-  config.activate.on-profile: docker
-  redis:
-    host: redis
-  kafka:
-    bootstrap-servers:
-      - kafka:9092
-account:
-  url: http://account:7000

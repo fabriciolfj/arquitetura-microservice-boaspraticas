@@ -1,0 +1,16 @@
+fullnameOverride: operation
+
+image:
+  name: operation-finance
+
+env:
+  SPRING_CONFIG_LOCATION: file:/config-repo/application.yml
+
+livenessProbe_enabled: true
+
+readinessProbe_enabled: true
+
+configmap:
+  enabled: true
+  volumeMounts:
+    mountPath: /config-repo

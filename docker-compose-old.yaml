@@ -28,6 +28,36 @@ services:
       depends_on:
         - postgres
 
+  product:
+    image: fabricio211/product-finance
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+     - 6000:6000
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  account:
+    image: fabricio211/account-finance
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+     - 7000:7000
+    depends_on:
+      mysql:
+        condition: service_healthy    
+
+  operation:
+    image: fabricio211/operation-finance
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+     - 9000:9000
+    depends_on:
+      mysql:
+        condition: service_healthy        
+
   mysql:
     image: mysql
     command: --lower_case_table_names=1
@@ -63,6 +93,14 @@ services:
     image: redis:alpine
     ports:
       - "6379:6379"
+
+  zipkin:
+    image: openzipkin/zipkin
+    environment:
+      - STORAGE_TYPE=elasticsearch
+      - "ES_HOSTS=elasticsearch:9300"
+    ports:
+      - "9411:9411"
 
 
 volumes:

@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/v1/account")
+@RequestMapping("/api/v1/account")
 public class SpringAccountController {
 
     @Autowired

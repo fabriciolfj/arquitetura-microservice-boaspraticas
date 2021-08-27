@@ -1,0 +1,15 @@
+dependencies:
+- name: common
+  repository: file://../../common
+  version: 1.0.0
+- name: conta
+  repository: file://../../components/conta
+  version: 1.0.0
+- name: product
+  repository: file://../../components/product
+  version: 1.0.0
+- name: operation
+  repository: file://../../components/operation
+  version: 1.0.0
+digest: sha256:69f9deedf1d9b2a9dffca4aa5e2c4bf46705ed3bb12453fa63b9ef67ab3bfa34
+generated: "2021-08-26T22:12:21.735836096-03:00"

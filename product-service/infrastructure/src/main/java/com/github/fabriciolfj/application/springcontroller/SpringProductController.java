@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/v1/products")
+@RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
 public class SpringProductController {
 

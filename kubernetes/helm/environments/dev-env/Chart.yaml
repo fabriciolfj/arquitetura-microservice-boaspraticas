@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: "1.0"
+description: A Helm chart for microservices
+name: dev-env
+version: 1.0.0
+
+dependencies:
+
+  - name: common
+    version: 1.0.0
+    repository: file://../../common
+
+  - name: conta
+    version: 1.0.0
+    repository: file://../../components/conta
+
+  - name: product
+    version: 1.0.0
+    repository: file://../../components/product
+
+  - name: operation
+    version: 1.0.0
+    repository: file://../../components/operation

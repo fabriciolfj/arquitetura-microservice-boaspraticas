@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/extract")
+@RequestMapping("/api//v1/extract")
 public class SpringExtractController {
 
     private final ExtractController extractController;
