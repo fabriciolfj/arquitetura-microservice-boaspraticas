@@ -43,7 +43,7 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
 - suba o docker-compose up -d
 - execute:
    - script build
-   - script install-cert-manager.sh
+   - script install-cert-manager.sh (vamos usar um certificado para efetuar requisições https)
    - cript install-istio.sh
    - script deply-services
 - Execute o comando minikube tunnel (simular um gateway a frente do cluster, pois o gateway istio é do tipo loadbalance).
@@ -52,6 +52,5 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
 ```
 10.102.41.168  microservices.me grafana.microservices.me kiali.microservices.me prometheus.microservices.me tracing.microservices.me kibana.microservices.me elasticsearch.microservices.me mail.microservices.me health.microservices.mie
 
-
 ```
-
+- Exemplo de requisição: https://microservices.me/api/v1/extract/965dae41-c79c-423f-b34a-2c481857123a?size=2&page=0
