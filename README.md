@@ -44,7 +44,7 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
 - execute:
    - script build
    - script install-cert-manager.sh (vamos usar um certificado para efetuar requisições https)
-   - cript install-istio.sh
+   - script install-istio.sh
    - script deply-services
 - Execute o comando minikube tunnel (simular um gateway a frente do cluster, pois o gateway istio é do tipo loadbalance).
 - pegue o ip do gatewa (kubectl get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}' --namespace=istio-system) e atualiza o host com os dns, conforme exemplo abaixo:
