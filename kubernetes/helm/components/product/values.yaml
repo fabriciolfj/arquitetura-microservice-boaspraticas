@@ -1,7 +1,7 @@
 fullnameOverride: product
 
 image:
-  name: product-finance
+  name: product-finance-tax
 
 env:
   SPRING_CONFIG_LOCATION: file:/config-repo/application.yml

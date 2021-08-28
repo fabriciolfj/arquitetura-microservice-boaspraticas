@@ -9,10 +9,10 @@ import java.math.BigDecimal;
 @FeignClient(url = "${account.url}", name = "account", configuration = AccountConfiguration.class)
 public interface AccountClient {
 
-    @PostMapping("/v1/extract/debit")
+    @PostMapping("/api/v1/extract/debit")
     void requestDebit(@RequestParam("value") final BigDecimal value, @RequestParam("code") final String code);
 
-    @PostMapping("/v1/extract/credit")
+    @PostMapping("/api/v1/extract/credit")
     void requestCredit(@RequestParam("value") final BigDecimal value, @RequestParam("code") final String code);
 
 }

@@ -37,22 +37,48 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /account
+        prefix: /api/v1/account
     route:
     - destination:
         host: conta
   - match:
+      - uri:
+          prefix: /api/v1/extract/debit
+    route:
+      - destination:
+          host: conta
+  - match:
+      - uri:
+          prefix: /api/v1/extract/credit
+    route:
+      - destination:
+          host: conta
+  - match:
+      - uri:
+          prefix: /api/v1/extract
+    route:
+      - destination:
+          host: conta
+  - match:
     - uri:
-        prefix: /product
+        prefix: /api/v1/products
     route:
     - destination:
         host: product
   - match:
     - uri:
-        prefix: /operation
+        prefix: /api/v1/operations/credit
     route:
     - destination:
         host: operation
         port:
           number: 80
+  - match:
+      - uri:
+          prefix: /api/v1/operations/debit
+    route:
+      - destination:
+          host: operation
+          port:
+            number: 80
 {{- end -}}

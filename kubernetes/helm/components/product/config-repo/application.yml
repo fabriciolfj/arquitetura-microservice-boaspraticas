@@ -13,7 +13,7 @@ spring:
   application:
     name: product-service
   redis:
-    host: 192.68.0.106
+    host: 192.168.0.106
     port: 6379
   lifecycle:
     timeout-per-shutdown-phase: 15s
@@ -22,7 +22,7 @@ spring:
       maximum-pool-size: 5
       minimum-idle: 3
       idle-timeout: 10000
-    url: jdbc:mysql://192.68.0.106:3307/financeiro?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://192.168.0.106:3307/financeiro?createDatabaseIfNotExist=true&serverTimezone=UTC
     password: root
     username: root
   jpa:
@@ -41,7 +41,7 @@ spring:
           content-type: application/json
           destination: operation-group
   kafka:
-    bootstrap-servers: 192.68.0.106:9092
+    bootstrap-servers: 192.168.0.106:9092
     consumer:
       auto-offset-reset: earliest
     listener:

@@ -4,6 +4,6 @@ cd $path
 mvn clean install
 cd infrastructure
 mvn spring-boot:build-image
-docker push fabricio211/product-finance
+docker push fabricio211/product-finance-tax
 
-minikube cache add fabricio211/product-finance:latest
+minikube cache add fabricio211/product-finance-tax:latest

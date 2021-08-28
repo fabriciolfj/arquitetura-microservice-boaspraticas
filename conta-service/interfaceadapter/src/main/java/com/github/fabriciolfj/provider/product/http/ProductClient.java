@@ -11,6 +11,6 @@ import java.math.BigDecimal;
 @FeignClient(url = "${app.product}", name = "product", configuration = ProductConfiguration.class)
 public interface ProductClient {
 
-    @GetMapping("/v1/products/{value}/{code}/link")
+    @GetMapping("/api/v1/products/{value}/{code}/link")
     GetProductResponse find(@PathVariable("value") final BigDecimal value, @PathVariable("code") final String customer);
 }

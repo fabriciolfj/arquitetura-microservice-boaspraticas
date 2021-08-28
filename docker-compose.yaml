@@ -29,7 +29,7 @@ services:
         - postgres
 
   mysql:
-    image: mysql
+    image: mysql:5.7.35
     command: --lower_case_table_names=1
     environment:
       MYSQL_ROOT_PASSWORD: "root"
@@ -43,13 +43,13 @@ services:
       retries: 60
 
   mysql2:
-    image: mysql
+    image: mysql:5.7.35
     command: --lower_case_table_names=1
     environment:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_ALLOW_EMPTY_PASSWORD: "no"
     ports:
-      - 3307:3307
+      - 3307:3306
     healthcheck:
       test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES;\""
       interval: 5s
