@@ -27,7 +27,7 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
   - flyway
   - oauth2
   - openfeign
-  - keycloak
+  - keycloak (pendente)
 
 ## Responsabilidades dos microservices
 
@@ -36,3 +36,22 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
 - vincular conta a um produto financeiro
 - inserir no cache as regras do produto, para uso no serviço de operações
 - atualizar uso do produto financeiro e controle de reset.
+
+## Subindo no ambiente local (seguir as etapas abaixo)
+- instale o minikube com o driver docker
+- instale o istioctl
+- suba o docker-compose up -d
+- execute:
+   1 - script build
+   2 - script install-cert-manager.sh
+   3 - script install-istio.sh
+   4 - script deply-services
+- Execute o comando minikube tunnel (simular um gateway a frente do cluster, pois o gateway istio é do tipo loadbalance).
+- pegue o ip do gatewa (kubectl get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}' --namespace=istio-system) e atualiza o host com os dns, conforme exemplo abaixo:
+
+```
+10.102.41.168  microservices.me grafana.microservices.me kiali.microservices.me prometheus.microservices.me tracing.microservices.me kibana.microservices.me elasticsearch.microservices.me mail.microservices.me health.microservices.mie
+
+
+```
+
