@@ -15,4 +15,4 @@ kubectl apply -n istio-system -f https://raw.githubusercontent.com/istio/istio/$
 
 helm upgrade --install istio-microservices-on-addons kubernetes/helm/environments/istio-system -n istio-system --wait
 
-print kubectl get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}' --namespace=istio-system
+kubectl get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}' --namespace=istio-system
