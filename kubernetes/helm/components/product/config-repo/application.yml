@@ -41,7 +41,8 @@ spring:
           content-type: application/json
           destination: operation-group
   kafka:
-    bootstrap-servers: 192.168.0.113:9092
+    bootstrap-servers:
+      - my-release-kafka:9092
     consumer:
       auto-offset-reset: earliest
     listener:
