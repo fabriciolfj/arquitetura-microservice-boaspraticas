@@ -1,5 +1,5 @@
 account:
-  url: http://account
+  url: http://conta
 
 server:
   port: 80
@@ -15,7 +15,7 @@ spring:
   application:
     name: operation
   redis:
-    host: 192.168.0.106
+    host: 192.168.0.113
     port: 6379
   cloud:
     stream:
@@ -25,7 +25,7 @@ spring:
           content-type: application/json
           destination: operation-group
   kafka:
-    bootstrap-servers: 192.168.0.106:9092
+    bootstrap-servers: 192.168.0.113:9092
 
 
 management:
