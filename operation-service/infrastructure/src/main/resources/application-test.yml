@@ -1,0 +1,49 @@
+account:
+  url: http://localhost:9090
+
+server:
+  port: 9001
+spring:
+  application:
+    name: operation
+  redis:
+    host: localhost
+    port: 6379
+  cloud:
+    stream:
+      bindings:
+        product-out-0:
+          group: '${spring.application.name}'
+          content-type: application/json
+          destination: operation-group
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
+
+
+management:
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoint:
+    metrics:
+      enabled: false
+    prometheus:
+      enabled: true
+
+---
+spring:
+  config.activate.on-profile: docker
+  redis:
+    host: redis
+  kafka:
+    bootstrap-servers:
+      - kafka:9092
+account:
+  url: http://account:7000

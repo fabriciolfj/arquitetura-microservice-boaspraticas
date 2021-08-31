@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "conta")
 @Data
+@EntityListeners(AuditingEntityListener.class)
 public class ContaEntity {
 
     @EqualsAndHashCode.Include
@@ -26,8 +28,11 @@ public class ContaEntity {
     @Column(name = "cpf", unique = true)
     private String cpf;
     private String product;
+    private String describe;
     @CreationTimestamp
     private LocalDateTime created;
     @UpdateTimestamp
     private LocalDateTime updated;
+    @Version
+    private int version;
 }

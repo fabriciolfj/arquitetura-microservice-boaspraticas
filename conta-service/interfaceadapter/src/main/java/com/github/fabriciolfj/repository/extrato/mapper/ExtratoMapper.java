@@ -13,6 +13,7 @@ public interface ExtratoMapper {
 
     @Mapping(target = "conta", source = "codeConta")
     @Mapping(target = "dateExtrato", source = "date")
+    @Mapping(target = "describe", source = "describe")
     ExtratoEntity toEntity(final Extract extrato);
 
     @Mapping(target = "codeConta", source = "conta")

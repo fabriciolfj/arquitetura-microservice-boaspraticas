@@ -5,6 +5,7 @@ cpf varchar(11) not null,
 product varchar(100) not null,
 created datetime not null,
 updated datetime,
+version integer not null,
 primary key (id),
 unique(cpf)
 ) engine=InnoDB default charset=utf8;
@@ -16,5 +17,9 @@ debit decimal(10,4) not null,
 credit decimal(10,4) not null,
 balance decimal(10,5) not null,
 date_extrato datetime not null,
+describe_registry varchar(100) not null,
+version integer not null,
+created datetime not null,
+updated datetime,
 primary key (id)
 ) engine=InnoDB default charset=utf8;

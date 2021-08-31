@@ -17,11 +17,14 @@ public class Extract {
 
     private static final int EQUALS = 0;
     private static final int DIF = 1;
+    private static final String CREDIT = "Credit";
+    private static final String DEBIT = "Debit";
 
     private String codeConta;
     private BigDecimal debit;
     private BigDecimal credit;
     private BigDecimal balance;
+    private String describe;
     private LocalDateTime date;
 
     public static Extract initial(final BigDecimal balance, final String code) {
@@ -29,6 +32,7 @@ public class Extract {
         extract.setBalance(balance);
         extract.setCredit(balance);
         extract.setDebit(BigDecimal.ZERO);
+        extract.setDescribe(CREDIT + " value:" + balance);
         return extract;
     }
 
@@ -38,10 +42,12 @@ public class Extract {
             case CREDIT:
                 extract.setCredit(value);
                 extract.setDebit(BigDecimal.ZERO);
+                extract.setDescribe(CREDIT + " value:" + value);
                 break;
             case DEBIT:
                 extract.setDebit(value);
                 extract.setCredit(BigDecimal.ZERO);
+                extract.setDescribe(DEBIT + " value:" + value);
                 break;
         }
 
