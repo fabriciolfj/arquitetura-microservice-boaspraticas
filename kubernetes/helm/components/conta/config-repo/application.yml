@@ -10,6 +10,7 @@ server:
       min-spare: 20
 
 spring:
+  sleuth.sampler.percentage: 1
   application:
     name: conta-service
   redis:

@@ -12,6 +12,7 @@ server:
       max: 200
       min-spare: 20
 spring:
+  sleuth.sampler.percentage: 1
   application:
     name: operation
   redis:
