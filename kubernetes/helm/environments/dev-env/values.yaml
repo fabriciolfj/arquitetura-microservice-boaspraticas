@@ -15,4 +15,4 @@ conta:
 destinationRules:
   - name: product
   - name: operation
-  - name: account
+  - name: conta
