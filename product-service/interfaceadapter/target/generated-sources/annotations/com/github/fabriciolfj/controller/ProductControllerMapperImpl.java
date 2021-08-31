@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-08-31T14:19:16-0300",
+    date = "2021-08-31T19:58:45-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.11 (Ubuntu)"
 )
 public class ProductControllerMapperImpl implements ProductControllerMapper {

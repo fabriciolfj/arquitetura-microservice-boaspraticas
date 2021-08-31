@@ -46,6 +46,8 @@ management:
       exposure:
         include: "*"
   metrics:
+    tags:
+      application: ${spring.application.name}
     export:
       prometheus:
         enabled: true

@@ -28,7 +28,6 @@ public class ContaEntity {
     @Column(name = "cpf", unique = true)
     private String cpf;
     private String product;
-    private String describe;
     @CreationTimestamp
     private LocalDateTime created;
     @UpdateTimestamp
