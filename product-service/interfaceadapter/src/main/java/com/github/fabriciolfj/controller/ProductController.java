@@ -5,6 +5,7 @@ import com.github.fabriciolfj.business.product.ProductGetCase;
 import com.github.fabriciolfj.controller.model.GetProductRequest;
 import com.github.fabriciolfj.controller.model.GetProductResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.sleuth.annotation.NewSpan;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -21,6 +22,7 @@ public class ProductController {
         return ProductControllerMapper.INSTANCE.toResponse(product);
     }
 
+    @NewSpan(name = "findProduct")
     public GetProductResponse findProduct(final BigDecimal value, final String account) {
         var product = productGetCase.execute(value, account);
         return ProductControllerMapper.INSTANCE.toResponse(product);

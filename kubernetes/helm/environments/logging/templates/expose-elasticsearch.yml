@@ -1,0 +1,46 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway #porta de entrada
+metadata:
+  name: elasticsearch-gateway
+  namespace: logging
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - hosts:
+    - "elasticsearch.microservices.me"
+    port:
+      number: 443
+      name: https-tracing
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: microservices-on-certificate
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService #quando a solicitacao passa pelo gateway, esse manifesto define a regra para aonde ela vai, no caso se for esse host elasticsearch.minikube.me, irá para elasticsearch
+metadata:
+  name: elasticsearch-vs
+  namespace: logging
+spec:
+  hosts:
+  - "elasticsearch.microservices.me"
+  gateways:
+  - elasticsearch-gateway
+  http:
+  - route:
+    - destination:
+        host: elasticsearch
+        port:
+          number: 9200
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: elasticsearch
+  namespace: logging
+spec:
+  host: elasticsearch
+  trafficPolicy:
+    tls:
+      mode: DISABLE
