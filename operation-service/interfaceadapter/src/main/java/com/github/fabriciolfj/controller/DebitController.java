@@ -17,7 +17,7 @@ public class DebitController {
     private final DebitCase debitCase;
     private final ProductCacheGateway cacheProvider;
 
-    public void execute(final OperationDto dto) {
+    public void execute (final OperationDto dto) {
         final Optional<Product> product = cacheProvider.getCache(dto.getAccount())
                 .map(CacheMapper.INSTANCE::toEntity);
         debitCase.execute(product, dto.getValue(), dto.getAccount());

@@ -2,7 +2,8 @@ package com.github.fabriciolfj.provider.http;
 
 import com.github.fabriciolfj.provider.http.account.AccountConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
 

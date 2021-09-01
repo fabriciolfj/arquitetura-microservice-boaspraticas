@@ -27,7 +27,7 @@ public class CacheConfig {
 
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
-        var redisConf = new RedisStandaloneConfiguration();
+        final var redisConf = new RedisStandaloneConfiguration();
         redisConf.setHostName(redisProperties.getHost());
         redisConf.setPort(redisProperties.getPort());
         return  new LettuceConnectionFactory(redisConf);

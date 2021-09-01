@@ -1,6 +1,5 @@
 package com.github.fabriciolfj;
 
-import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
@@ -8,9 +7,11 @@ import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
+import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -18,9 +19,10 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 
 @ActiveProfiles("test")
 @AutoConfigureWireMock(port = 0)
-@ExtendWith(SpringExtension.class)
+@ExtendWith({SpringExtension.class, MockitoExtension.class})
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-public class OperationServiceApplicationTest {
+@EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" })
+public abstract class OperationServiceApplicationTest {
 
     @LocalServerPort
     private int port;
@@ -30,7 +32,6 @@ public class OperationServiceApplicationTest {
         RestAssured.with().contentType(ContentType.JSON);
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-        FixtureFactoryLoader.loadTemplates("com.github.fabriciolfj.template.loader");
     }
 
     @BeforeEach

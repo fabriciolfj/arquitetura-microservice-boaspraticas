@@ -1,5 +1,5 @@
 account:
-  url: http://localhost:9090
+  url: http://localhost:${wiremock.server.port}
 
 server:
   port: 9001
@@ -36,14 +36,3 @@ management:
       enabled: false
     prometheus:
       enabled: true
-
----
-spring:
-  config.activate.on-profile: docker
-  redis:
-    host: redis
-  kafka:
-    bootstrap-servers:
-      - kafka:9092
-account:
-  url: http://account:7000

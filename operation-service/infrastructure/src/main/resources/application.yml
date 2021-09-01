@@ -1,5 +1,5 @@
 account:
-  url: http://localhost:9090
+  url: http://localhost:7000
 
 server:
   port: 9001
@@ -20,7 +20,6 @@ spring:
     bootstrap-servers:
       - localhost:9092
 
-
 management:
 
   endpoints:
@@ -38,6 +37,8 @@ management:
       enabled: true
 
 ---
+server:
+  port: 9000
 spring:
   config.activate.on-profile: docker
   redis:
