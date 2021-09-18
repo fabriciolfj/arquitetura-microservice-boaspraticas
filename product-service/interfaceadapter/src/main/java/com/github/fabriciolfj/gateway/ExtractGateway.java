@@ -9,6 +9,7 @@ import com.github.fabriciolfj.providers.cache.CacheProvider;
 import com.github.fabriciolfj.repository.extract.ExtractEntityMapper;
 import com.github.fabriciolfj.repository.extract.ExtractEntityRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class ExtractGateway implements LinkProductCustomer, UpdateCache, FindAllExtract {
@@ -43,7 +45,9 @@ public class ExtractGateway implements LinkProductCustomer, UpdateCache, FindAll
 
     @Override
     public List<Extract> findAll() {
-        return extractEntityRepository.findAll()
+        final var extracts = extractEntityRepository.listAccountProduct();
+        extracts.forEach(e -> log.info("Account: {}, product: {}", e.getAccount(), e.getProduct()));
+        return extracts
                 .stream().map(ExtractEntityMapper.INSTANCE::toDomain)
                 .collect(Collectors.toList());
     }

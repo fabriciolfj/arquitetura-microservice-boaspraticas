@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @ComponentScan(basePackages = "com.github.fabriciolfj")
 @EnableJpaRepositories(basePackages = "com.github.fabriciolfj.repository")
-@EntityScan(basePackages = {"com.github.fabriciolfj.repository.product.model", "com.github.fabriciolfj.repository.extract.model"})
+@EntityScan(basePackages = {"com.github.fabriciolfj.repository.product.model", "com.github.fabriciolfj.repository.extract.entities"})
 @SpringBootApplication
 public class Application {
 

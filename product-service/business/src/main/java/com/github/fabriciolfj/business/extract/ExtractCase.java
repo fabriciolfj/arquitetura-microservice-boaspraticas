@@ -25,7 +25,6 @@ public class ExtractCase {
                 });
     }
 
-    //Resetar com base no produto
     private Product reset(final String product) {
         return findProduct.findByCode(product)
                 .orElseThrow(() -> new ProductNotFoundException("Product not found: " + product));

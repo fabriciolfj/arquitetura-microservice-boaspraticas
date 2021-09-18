@@ -35,7 +35,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL57Dialect
 
 app:
-  product: http://localhost:8181
+  product: http://localhost:6000
 
 management:
   endpoints:

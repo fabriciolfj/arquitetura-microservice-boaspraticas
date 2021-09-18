@@ -22,7 +22,7 @@ spring:
       maximum-pool-size: 5
       minimum-idle: 3
       idle-timeout: 1000
-    url: jdbc:mysql://192.168.0.106:3307/financeiro?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3307/financeiro?createDatabaseIfNotExist=true&serverTimezone=UTC
     password: root
     username: root
   jpa:
@@ -65,7 +65,7 @@ management:
       enabled: true
 
 cron:
-  reset: "* * 23 * * ?"
+  reset: "0 0 23 * * ?"
 ---
 spring.config.activate.on-profile: docker
 

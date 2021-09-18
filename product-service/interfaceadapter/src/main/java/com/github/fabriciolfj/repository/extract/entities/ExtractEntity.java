@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.repository.extract.model;
+package com.github.fabriciolfj.repository.extract.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
