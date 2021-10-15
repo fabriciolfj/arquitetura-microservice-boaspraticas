@@ -49,13 +49,14 @@ Nesse repositório possuem 3 microservices, atendendo contextos diferentes, tais
 - Execute o comando minikube tunnel (simular um gateway a frente do cluster, pois o gateway istio é do tipo loadbalance).
 - pegue o ip do gateway (kubectl get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}' --namespace=istio-system) e atualiza o host com os dns, conforme exemplo abaixo:
 
+```
+10.102.41.168  microservices.me grafana.microservices.me kiali.microservices.me prometheus.microservices.me tracing.microservices.me kibana.microservices.me elasticsearch.microservices.me mail.microservices.me health.microservices.mie
+```
+
 ## Subindo efk
 - Execute os scripts abaixo:
   -  build-fluentd.sh
   -  deploy-efk.sh
 
-```
-10.102.41.168  microservices.me grafana.microservices.me kiali.microservices.me prometheus.microservices.me tracing.microservices.me kibana.microservices.me elasticsearch.microservices.me mail.microservices.me health.microservices.mie
 
-```
 - Exemplo de requisição: https://microservices.me/api/v1/extract/965dae41-c79c-423f-b34a-2c481857123a?size=2&page=0
