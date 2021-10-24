@@ -14,7 +14,7 @@ spring:
   application:
     name: product-service
   redis:
-    host: 192.168.0.113
+    host: 192.168.0.119
     port: 6379
   lifecycle:
     timeout-per-shutdown-phase: 15s
@@ -23,7 +23,7 @@ spring:
       maximum-pool-size: 5
       minimum-idle: 3
       idle-timeout: 10000
-    url: jdbc:mysql://192.168.0.113:3307/financeiro?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://192.168.0.119:3307/financeiro?createDatabaseIfNotExist=true&serverTimezone=UTC
     password: root
     username: root
   jpa:
