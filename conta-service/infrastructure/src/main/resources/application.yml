@@ -52,6 +52,29 @@ management:
     prometheus:
       enabled: true
 
+resilience4j:
+  circuitbreaker:
+    instances:
+      product:
+        registerHealthIndicator: true
+        ringBufferSizeInClosedState: 5
+        ringBufferSizeInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        recordExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+          - org.springframework.web.client.ResourceAccessException
+          - java.lang.RuntimeException
+  retry:
+    instances:
+      product:
+        maxRetryAttempts: 5
+        waitDuration: 10000
+        retryExceptions:
+          - java.util.concurrent.TimeoutException
+
 ---
 server:
   port: 7000
